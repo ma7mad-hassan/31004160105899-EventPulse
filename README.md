@@ -24,5 +24,6 @@ A robust RESTful API built for managing events, built with Node.js, Express, and
     "mongoose": "^9.9.3",
     "morgan": "^1.11.0",
     "socket.io": "^4.8.3"
-3.
+3.deployment link
+https://31004160105899-event-pulse.vercel.app/
 
