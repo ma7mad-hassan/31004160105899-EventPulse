@@ -12,7 +12,7 @@ function requireAuth(req, res, next) {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; // { userId, role }
+        req.user = decoded; 
         next();
     } catch (error) {
         return next(new AppError('Invalid or expired token', 401));

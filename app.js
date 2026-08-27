@@ -9,8 +9,9 @@ const mongoSanitize = require("express-mongo-sanitize");
 const connectDB = require('./config/connectDB');
 const errorHandler = require('./middleware/errorHandler');
 const AppError = require("./utils/appError");
-const authRoutes = require('./routes/authRoutes');
-const eventRoutes = require('./routes/eventRoutes');
+const authRoutes = require("./routes/authRoutes");
+const eventRoutes = require("./routes/eventRoutes");
+const registrationRoutes = require("./routes/registrationRoutes");
 
 const app = express();
 app.use(morgan('dev'));
@@ -28,6 +29,7 @@ app.use(mongoSanitize());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/registrations", registrationRoutes);
 
 // sends unhandled routes to the error handler
 app.use((req, res, next)=>{
