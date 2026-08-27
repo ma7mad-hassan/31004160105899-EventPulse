@@ -8,13 +8,14 @@ const mongoSanitize = require("express-mongo-sanitize");
 // loading files
 const connectDB = require('./config/connectDB');
 const errorHandler = require('./middleware/errorHandler');
-const AppError = require("./utils/AppError");
+const AppError = require("./utils/appError");
 const authRoutes = require('./routes/authRoutes');
+const eventRoutes = require('./routes/eventRoutes');
 
 const app = express();
-
 app.use(morgan('dev'));
 app.use(express.json());
+
 app.use((req, res, next) => {
   Object.defineProperty(req, 'query', {
     ...Object.getOwnPropertyDescriptor(req, 'query'),
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 app.use(mongoSanitize());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/events", eventRoutes);
 
 // sends unhandled routes to the error handler
 app.use((req, res, next)=>{

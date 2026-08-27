@@ -1,7 +1,7 @@
 // loading required npms
 require("dotenv").config();
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcryptjs");
 
 // loading required models
 const category = require("./models/categoryModel");
@@ -30,7 +30,7 @@ async function runSeed() {
         await initializeModels(event);
 // seeding users, categories and events     
     const users = await user.create([
-        {name: "Ahmed Karim", email: "ahmedkarim@example.com", password: "password1234", role: "admin"},
+        {name: "Ahmed Karim", email: "ahmedkarim@example.com", password: await bcrypt.hash("password1234", 12), role: "admin"},
     ]);
     const categories = await category.create([
         {name: "Sports", description: "Matches and tours at stadiums"},
