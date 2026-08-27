@@ -1,3 +1,6 @@
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 // loading npms
 require('dotenv').config();
 const express = require("express");
@@ -71,3 +74,18 @@ async function start() {
 }
 
 start();
+app.get('/health', (req, res) => {
+  const dbStates = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting',
+  };
+
+  res.status(200).json({
+    status: 'ok',
+    environment: process.env.NODE_ENV || 'development',
+    uptime: process.uptime(),
+    database: dbStates[mongoose.connection.readyState] || 'unknown',
+  });
+});
