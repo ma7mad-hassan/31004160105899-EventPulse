@@ -87,7 +87,7 @@ exports.createEvent = asyncHandler(async (req, res, next) => {
 });
 // PATCH /api/events/:id
 exports.updateEvent = asyncHandler(async (req, res, next) => {
-        const event = await Event.findByIdAndUpdate(
+    const event = await Event.findByIdAndUpdate(
         req.params.id,
         {$set: req.body},
         {new: true, runValidators: true}

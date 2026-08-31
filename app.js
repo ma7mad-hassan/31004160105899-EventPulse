@@ -57,6 +57,21 @@ app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/registrations", registrationRoutes);
 app.use("/api/announcements", announcementRoutes);
+app.get('/health', (req, res) => {
+  const dbStates = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting',
+  };
+
+  res.status(200).json({
+    status: 'ok',
+    environment: process.env.NODE_ENV || 'development',
+    uptime: process.uptime(),
+    database: dbStates[mongoose.connection.readyState] || 'unknown',
+  });
+});
 
 // sends unhandled routes to the error handler
 app.use((req, res, next)=>{
@@ -74,18 +89,3 @@ async function start() {
 }
 
 start();
-app.get('/health', (req, res) => {
-  const dbStates = {
-    0: 'disconnected',
-    1: 'connected',
-    2: 'connecting',
-    3: 'disconnecting',
-  };
-
-  res.status(200).json({
-    status: 'ok',
-    environment: process.env.NODE_ENV || 'development',
-    uptime: process.uptime(),
-    database: dbStates[mongoose.connection.readyState] || 'unknown',
-  });
-});

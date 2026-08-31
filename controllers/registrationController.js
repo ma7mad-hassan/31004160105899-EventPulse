@@ -6,7 +6,7 @@ const asyncHandler = require("../utils/asyncHandler");
 // POST /api/registrations
 exports.registerationForEvents = asyncHandler(async (req, res, next) => {
     const userId  = req.user.userId;
-    const eventId = req.body.event;
+    const eventId = req.body.eventId;
     const event = await Event.findById(eventId);
     if (!event) {
         return next(new AppError('Event not found', 404));

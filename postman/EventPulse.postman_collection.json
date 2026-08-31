@@ -1,0 +1,1219 @@
+{
+  "info": {
+    "_postman_id": "729b40b1-9ff0-4989-afbb-b8fcf53aa501",
+    "name": "EventPulse",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56559565",
+    "_collection_link": "https://go.postman.co/collection/56559565-729b40b1-9ff0-4989-afbb-b8fcf53aa501?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "signUp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"mohamed\",\r\n  \"email\": \"mohamed@example.com\",\r\n  \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "signUp",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"mohamed\",\r\n  \"email\": \"mohamed@example.com\",\r\n  \"password\": \"password\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "337"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"151-9X71IhlvYpp7jbbJ/lXGbbS5dCY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 19:36:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTk1ZDdiYjVlZGEyMzQ1ODY1OWI2ZDQiLCJyb2xlIjoiYXR0ZW5kZWUiLCJpYXQiOjE3ODgyMDQ5ODcsImV4cCI6MTc4ODgwOTc4N30.5MuGM1lCHRrqmInTp8DtANgqJqWcJTmbenpG-UxWoT8\",\n    \"data\": {\n        \"id\": \"6a95d7bb5eda23458659b6d4\",\n        \"name\": \"mohamed\",\n        \"email\": \"mohamed@example.com\",\n        \"role\": \"attendee\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "adminSignIn",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const responseData = pm.response.json();\r",
+                  "pm.environment.set(\"adminToken\", responseData.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"ahmedkarim@example.com\",\n    \"password\": \"password1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "adminSignIn",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"ahmedkarim@example.com\",\n    \"password\": \"password1234\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "278"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"116-HtnRPkPnsKdrzzG1IqrvylOcnZU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 19:43:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTk1ZDc5YjliZDJkOTVmMjMwZDIwYmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODgyMDU0MzQsImV4cCI6MTc4ODgxMDIzNH0.6_QglEVJwyFiE4MW9if7Ajfg5spw5NS2TgaQyt8079g\",\n    \"userId\": \"6a95d79b9bd2d95f230d20bb\",\n    \"role\": \"admin\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "attendeeSignIn",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const responseData = pm.response.json();\r",
+                  "pm.environment.set(\"attendeeToken\", responseData.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"mohamed\",\r\n  \"email\": \"mohamed@example.com\",\r\n  \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "attendeeSignIn",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"mohamed\",\r\n  \"email\": \"mohamed@example.com\",\r\n  \"password\": \"password\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "285"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"11d-SK/v7UizW7sJSrmdL56Td6qGr9M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 19:49:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTk1ZDdiYjVlZGEyMzQ1ODY1OWI2ZDQiLCJyb2xlIjoiYXR0ZW5kZWUiLCJpYXQiOjE3ODgyMDU3OTcsImV4cCI6MTc4ODgxMDU5N30.2rcHOhhdDJbHFuWfXz5X-uMAZ1qMmRmVEcYyjWAIZi4\",\n    \"userId\": \"6a95d7bb5eda23458659b6d4\",\n    \"role\": \"attendee\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "events",
+      "item": [
+        {
+          "name": "getEvents",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "events"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "getEvents",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/events",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3675"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"e5b-Rq8p4oOGd7RAwrgOzNEvuCmxVNw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 19:52:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"_id\": \"6a95d79d9bd2d95f230d20bf\",\n            \"title\": \"Al Ahly vs El Zamalek\",\n            \"description\": \"Watch the biggest match of the league season as these 2 giants face off for the league title\",\n            \"category\": {\n                \"_id\": \"6a95d79c9bd2d95f230d20bc\",\n                \"name\": \"Sports\",\n                \"description\": \"Matches and tours at stadiums\",\n                \"createdAt\": \"2026-08-31T19:35:56.084Z\",\n                \"updatedAt\": \"2026-08-31T19:35:56.084Z\",\n                \"__v\": 0\n            },\n            \"date\": \"2026-09-15T21:00:00.000Z\",\n            \"city\": \"Cairo\",\n            \"venue\": \"cairo stadium\",\n            \"capacity\": 70000,\n            \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n            \"createdAt\": \"2026-08-31T19:35:57.918Z\",\n            \"updatedAt\": \"2026-08-31T19:35:57.918Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a95d79d9bd2d95f230d20c0\",\n            \"title\": \"Basketball Super League Finals\",\n            \"description\": \"Witness the thrilling climax of the national basketball season as the top teams clash for the championship trophy.\",\n            \"category\": {\n                \"_id\": \"6a95d79c9bd2d95f230d20bc\",\n                \"name\": \"Sports\",\n                \"description\": \"Matches and tours at stadiums\",\n                \"createdAt\": \"2026-08-31T19:35:56.084Z\",\n                \"updatedAt\": \"2026-08-31T19:35:56.084Z\",\n                \"__v\": 0\n            },\n            \"date\": \"2026-10-20T00:00:00.000Z\",\n            \"city\": \"Alexandria\",\n            \"venue\": \"Borg El Arab Sports Hall\",\n            \"capacity\": 15000,\n            \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n            \"createdAt\": \"2026-08-31T19:35:57.919Z\",\n            \"updatedAt\": \"2026-08-31T19:35:57.919Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a95d79d9bd2d95f230d20c1\",\n            \"title\": \"Cairo Jazz Festival 2026\",\n            \"description\": \"A weekend of soul, funk, and international jazz performances under the stars.\",\n            \"category\": {\n                \"_id\": \"6a95d79c9bd2d95f230d20bd\",\n                \"name\": \"Music\",\n                \"description\": \"Concerts and festivals\",\n                \"createdAt\": \"2026-08-31T19:35:56.085Z\",\n                \"updatedAt\": \"2026-08-31T19:35:56.085Z\",\n                \"__v\": 0\n            },\n            \"date\": \"2026-11-12T00:00:00.000Z\",\n            \"city\": \"Cairo\",\n            \"venue\": \"The Greek Campus\",\n            \"capacity\": 3000,\n            \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n            \"createdAt\": \"2026-08-31T19:35:57.919Z\",\n            \"updatedAt\": \"2026-08-31T19:35:57.919Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a95d79d9bd2d95f230d20c4\",\n            \"title\": \"Alexandria Hackathon & AI Summit\",\n            \"description\": \"A 48-hour competitive hackathon focused on building modern web applications and AI solutions.\",\n            \"category\": {\n                \"_id\": \"6a95d79c9bd2d95f230d20be\",\n                \"name\": \"Tech conferences\",\n                \"description\": \"Industry events\",\n                \"createdAt\": \"2026-08-31T19:35:56.085Z\",\n                \"updatedAt\": \"2026-08-31T19:35:56.085Z\",\n                \"__v\": 0\n            },\n            \"date\": \"2026-11-20T00:00:00.000Z\",\n            \"city\": \"Alexandria\",\n            \"venue\": \"Bibliotheca Alexandrina\",\n            \"capacity\": 500,\n            \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n            \"createdAt\": \"2026-08-31T19:35:57.919Z\",\n            \"updatedAt\": \"2026-08-31T19:35:57.919Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a95d79d9bd2d95f230d20c2\",\n            \"title\": \"Red Sea Acoustic Sunset\",\n            \"description\": \"An intimate seaside acoustic concert featuring local indie singers and songwriters.\",\n            \"category\": {\n                \"_id\": \"6a95d79c9bd2d95f230d20bd\",\n                \"name\": \"Music\",\n                \"description\": \"Concerts and festivals\",\n                \"createdAt\": \"2026-08-31T19:35:56.085Z\",\n                \"updatedAt\": \"2026-08-31T19:35:56.085Z\",\n                \"__v\": 0\n            },\n            \"date\": \"2026-12-05T00:00:00.000Z\",\n            \"city\": \"El Gouna\",\n            \"venue\": \"Marina Promenade Stage\",\n            \"capacity\": 800,\n            \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n            \"createdAt\": \"2026-08-31T19:35:57.919Z\",\n            \"updatedAt\": \"2026-08-31T19:35:57.919Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a95d79d9bd2d95f230d20c3\",\n            \"title\": \"PyCon Egypt 2026\",\n            \"description\": \"The premier gathering for Python developers, data scientists, and AI enthusiasts in the region.\",\n            \"category\": {\n                \"_id\": \"6a95d79c9bd2d95f230d20be\",\n                \"name\": \"Tech conferences\",\n                \"description\": \"Industry events\",\n                \"createdAt\": \"2026-08-31T19:35:56.085Z\",\n                \"updatedAt\": \"2026-08-31T19:35:56.085Z\",\n                \"__v\": 0\n            },\n            \"date\": \"2027-01-07T22:00:00.000Z\",\n            \"city\": \"Cairo\",\n            \"venue\": \"Smart Village Conference Center\",\n            \"capacity\": 1500,\n            \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n            \"createdAt\": \"2026-08-31T19:35:57.919Z\",\n            \"updatedAt\": \"2026-08-31T19:35:57.919Z\",\n            \"__v\": 0\n        }\n    ],\n    \"pagination\": {\n        \"totalEvents\": 6,\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"itemsPerPage\": 10\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "getEventsById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events/6a95d79d9bd2d95f230d20bf",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "events",
+                "6a95d79d9bd2d95f230d20bf"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "getEventsById",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/events/6a95d79d9bd2d95f230d20bf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events",
+                    "6a95d79d9bd2d95f230d20bf"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "775"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"307-svj4gk094ojxic30AcsWWl/xiOM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 19:54:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"6a95d79d9bd2d95f230d20bf\",\n        \"title\": \"Al Ahly vs El Zamalek\",\n        \"description\": \"Watch the biggest match of the league season as these 2 giants face off for the league title\",\n        \"category\": {\n            \"_id\": \"6a95d79c9bd2d95f230d20bc\",\n            \"name\": \"Sports\",\n            \"description\": \"Matches and tours at stadiums\",\n            \"createdAt\": \"2026-08-31T19:35:56.084Z\",\n            \"updatedAt\": \"2026-08-31T19:35:56.084Z\",\n            \"__v\": 0\n        },\n        \"date\": \"2026-09-15T21:00:00.000Z\",\n        \"city\": \"Cairo\",\n        \"venue\": \"cairo stadium\",\n        \"capacity\": 70000,\n        \"organizer\": {\n            \"_id\": \"6a95d79b9bd2d95f230d20bb\",\n            \"name\": \"Ahmed Karim\",\n            \"email\": \"ahmedkarim@example.com\",\n            \"role\": \"admin\",\n            \"createdAt\": \"2026-08-31T19:35:55.766Z\",\n            \"updatedAt\": \"2026-08-31T19:35:55.766Z\",\n            \"__v\": 0\n        },\n        \"createdAt\": \"2026-08-31T19:35:57.918Z\",\n        \"updatedAt\": \"2026-08-31T19:35:57.918Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "createEvent",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Tech Workshop 2026\",\r\n  \"description\": \"An introductory workshop on building web applications.\",\r\n  \"category\": \"6a95d79c9bd2d95f230d20be\",\r\n  \"date\": \"2026-10-15T10:00:00.000Z\",\r\n  \"city\": \"cairo\",\r\n  \"venue\": \"Smart Village Conference Center\",\r\n  \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\r\n  \"capacity\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/events/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "events",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "createEvent",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Tech Workshop 2026\",\r\n  \"description\": \"An introductory workshop on building web applications.\",\r\n  \"category\": \"6a95d79c9bd2d95f230d20be\",\r\n  \"date\": \"2026-10-15T10:00:00.000Z\",\r\n  \"city\": \"cairo\",\r\n  \"venue\": \"Smart Village Conference Center\",\r\n  \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\r\n  \"capacity\": 50\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/events/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "430"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1ae-q+nC43dF28Cbn67HcLSMF8+bIy8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 20:02:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"title\": \"Tech Workshop 2026\",\n        \"description\": \"An introductory workshop on building web applications.\",\n        \"category\": \"6a95d79c9bd2d95f230d20be\",\n        \"date\": \"2026-10-15T10:00:00.000Z\",\n        \"city\": \"cairo\",\n        \"venue\": \"Smart Village Conference Center\",\n        \"capacity\": 50,\n        \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n        \"_id\": \"6a95ddea5eda23458659b6d6\",\n        \"createdAt\": \"2026-08-31T20:02:50.854Z\",\n        \"updatedAt\": \"2026-08-31T20:02:50.854Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "updateEvents",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"capacity\": 2000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/events/6a95d79d9bd2d95f230d20c3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "events",
+                "6a95d79d9bd2d95f230d20c3"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "updateEvents",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"capacity\": 2000\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/events/6a95d79d9bd2d95f230d20c3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events",
+                    "6a95d79d9bd2d95f230d20c3"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "471"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1d7-50HNHk+5mGIFW5gRk+nSatbxCck\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 20:14:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"6a95d79d9bd2d95f230d20c3\",\n        \"title\": \"PyCon Egypt 2026\",\n        \"description\": \"The premier gathering for Python developers, data scientists, and AI enthusiasts in the region.\",\n        \"category\": \"6a95d79c9bd2d95f230d20be\",\n        \"date\": \"2027-01-07T22:00:00.000Z\",\n        \"city\": \"Cairo\",\n        \"venue\": \"Smart Village Conference Center\",\n        \"capacity\": 2000,\n        \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n        \"createdAt\": \"2026-08-31T19:35:57.919Z\",\n        \"updatedAt\": \"2026-08-31T20:14:18.410Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "deleteEvents",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events/6a95d79d9bd2d95f230d20c4",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "events",
+                "6a95d79d9bd2d95f230d20c4"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "deleteEvents",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/events/6a95d79d9bd2d95f230d20c4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "events",
+                    "6a95d79d9bd2d95f230d20c4"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "32"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 20:15:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "registrations",
+      "item": [
+        {
+          "name": "registerEvent",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{attendeeToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"6a95d79d9bd2d95f230d20bf\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/registrations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "registrations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "registerEvent",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"eventId\": \"6a95d79d9bd2d95f230d20bf\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/registrations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "registrations"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "221"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"dd-cJwIacEksiMatO8oJvAGHAUspuU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 20:47:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"event\": \"6a95d79d9bd2d95f230d20bf\",\n        \"attendee\": \"6a95d7bb5eda23458659b6d4\",\n        \"_id\": \"6a95e8705eda23458659b6d7\",\n        \"createdAt\": \"2026-08-31T20:47:44.322Z\",\n        \"updatedAt\": \"2026-08-31T20:47:44.322Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "myEvents",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{attendeeToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/registrations/my",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "registrations",
+                "my"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "myEvents",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/registrations/my",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "registrations",
+                    "my"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "637"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"27d-KDgoKEU32fjWg+RminC06+M6RmI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 20:50:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 1,\n    \"data\": [\n        {\n            \"_id\": \"6a95e8705eda23458659b6d7\",\n            \"event\": {\n                \"_id\": \"6a95d79d9bd2d95f230d20bf\",\n                \"title\": \"Al Ahly vs El Zamalek\",\n                \"description\": \"Watch the biggest match of the league season as these 2 giants face off for the league title\",\n                \"category\": \"6a95d79c9bd2d95f230d20bc\",\n                \"date\": \"2026-09-15T21:00:00.000Z\",\n                \"city\": \"Cairo\",\n                \"venue\": \"cairo stadium\",\n                \"capacity\": 70000,\n                \"organizer\": \"6a95d79b9bd2d95f230d20bb\",\n                \"createdAt\": \"2026-08-31T19:35:57.918Z\",\n                \"updatedAt\": \"2026-08-31T19:35:57.918Z\",\n                \"__v\": 0\n            },\n            \"attendee\": \"6a95d7bb5eda23458659b6d4\",\n            \"createdAt\": \"2026-08-31T20:47:44.322Z\",\n            \"updatedAt\": \"2026-08-31T20:47:44.322Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "deleteRegestration",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{attendeeToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/registrations/6a95e8705eda23458659b6d7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "registrations",
+                "6a95e8705eda23458659b6d7"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "deleteRegestration",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/registrations/6a95e8705eda23458659b6d7",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "registrations",
+                    "6a95e8705eda23458659b6d7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "49"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"31-4mFGT6POIHSv8H9mPZiExS9CIrE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 20:52:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Registration cancelled successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "announcements",
+      "item": [
+        {
+          "name": "sendAnnouncement",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eventId\": \"6a95e8705eda23458659b6d7\",\r\n  \"text\": \"Please come to the stadium one hour early.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/announcements",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "announcements"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "sendAnnouncement",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"eventId\": \"6a95e8705eda23458659b6d7\",\r\n  \"text\": \"Please come to the stadium one hour early.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/announcements",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "announcements"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "271"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"10f-vKWW1XQKmGq1Iouj6mK2/J57eDk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 21:01:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"event\": \"6a95e8705eda23458659b6d7\",\n        \"sender\": \"6a95d79b9bd2d95f230d20bb\",\n        \"text\": \"Please come to the stadium one hour early.\",\n        \"_id\": \"6a95ebc35eda23458659b6d8\",\n        \"createdAt\": \"2026-08-31T21:01:55.217Z\",\n        \"updatedAt\": \"2026-08-31T21:01:55.217Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "getAnnouncements",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{attendeeToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"eventId\": \"6a95e8705eda23458659b6d7\",\r\n  \"text\": \"Please come to the stadium one hour early.\"\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/announcements/6a95e8705eda23458659b6d7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "announcements",
+                "6a95e8705eda23458659b6d7"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "getAnnouncements",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"eventId\": \"6a95e8705eda23458659b6d7\",\r\n  \"text\": \"Please come to the stadium one hour early.\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/announcements/6a95e8705eda23458659b6d7",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "announcements",
+                    "6a95e8705eda23458659b6d7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "347"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"15b-G94JEg+5Iihb7o5VWTtMbbPQBPk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 31 Aug 2026 21:03:25 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 1,\n    \"data\": [\n        {\n            \"_id\": \"6a95ebc35eda23458659b6d8\",\n            \"event\": \"6a95e8705eda23458659b6d7\",\n            \"sender\": {\n                \"_id\": \"6a95d79b9bd2d95f230d20bb\",\n                \"name\": \"Ahmed Karim\",\n                \"email\": \"ahmedkarim@example.com\"\n            },\n            \"text\": \"Please come to the stadium one hour early.\",\n            \"createdAt\": \"2026-08-31T21:01:55.217Z\",\n            \"updatedAt\": \"2026-08-31T21:01:55.217Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
